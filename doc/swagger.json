@@ -1,0 +1,148 @@
+{
+    "openapi": "3.0.0",
+    "x-stoplight": {
+      "id": "gxmy1errh0va8"
+    },
+    "info": {
+      "title": "resume-enhancement-service",
+      "version": "1.0",
+      "contact": {
+        "name": "Emmanuel Hilary",
+        "url": "https://github.com/emmanuel1-byte",
+        "email": "emmanuelhilary9@gmail.com"
+      },
+      "description": "The Resume Enhancement API is a service designed to empower job seekers by improving the quality and effectiveness of their resumes through advanced AI-driven analysis and optimization. The API will integrate with Gemini AI's suite of natural language processing (NLP) and content enhancement capabilities to provide users with valuable insights and suggestions for enhancing their resumes."
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000"
+      }
+    ],
+    "paths": {
+      "/api/v1/resumes/upload": {
+        "post": {
+          "summary": "Your POST endpoint",
+          "tags": [
+            "Resume"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/octet-stream": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "boolean"
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    },
+                    "x-examples": {
+                      "Example 1": {
+                        "success": false,
+                        "message": "Error Uploading file to cloudinary"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Example 1": {
+                      "value": {
+                        "success": false,
+                        "message": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "415": {
+              "description": "Unsupported Media Type",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "x-examples": {
+                      "Example 1": {
+                        "suucess": false,
+                        "message": "Invalid file format pdf file expected!"
+                      }
+                    },
+                    "properties": {
+                      "suucess": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "message": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "examples": {
+                    "Example 1": {
+                      "value": {
+                        "suucess": false,
+                        "message": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "post-api-resumes",
+          "x-stoplight": {
+            "id": "3fxi08eco2ytf"
+          },
+          "requestBody": {
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resume": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "resume": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "resume": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
+    },
+    "components": {
+      "schemas": {}
+    },
+    "tags": [
+      {
+        "name": "Resume"
+      }
+    ]
+  }
