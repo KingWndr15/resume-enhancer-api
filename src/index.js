@@ -1,8 +1,8 @@
 const express = require('express');
-const enhancement = require('./src/modules/resume-enhancement/route');
-const establishDatabaseConnection = require('./src/utils/database');
+const enhancement = require('./modules/resume-enhancement/route');
+const establishDatabaseConnection = require('./utils/database');
 const sawggerUi = require('swagger-ui-express')
-const swaggerDocument = require('./doc/swagger.json')
+const swaggerDocument = require('../doc/swagger.json')
 
 const app = express();
 

@@ -2,17 +2,15 @@
 
   "scripts": {
 
-    "start": "c",
+    "start": "cross-env NODE_ENV=production pm2 start src/index.js",
 
-    "dev": "cross-env NODE_ENV=development nodemon index.js"
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js"
 
   },
 
   "dependencies": {
 
     "@google/generative-ai": "^0.7.1",
-
-    "axios": "^1.6.8",
 
     "cloudinary": "^2.1.0",
 
@@ -21,8 +19,6 @@
     "dotenv": "^16.4.5",
 
     "express": "^4.19.2",
-
-    "formidable": "^3.5.1",
 
     "marked": "^12.0.2",
 
