@@ -130,6 +130,12 @@
                     }
                   }
                 }
+              },
+              "application/pdf": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
               }
             }
           }
