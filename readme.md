@@ -11,7 +11,7 @@ Welcome to Resume-Enhancer! This tool is designed to help you optimize your resu
 
 ## Getting Started
 1. **Sign Up for Gemini AI**: If you haven't already, sign up for an account on Gemini AI's platform at [gemini.ai/signup](https://gemini.ai/signup).
-2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/yourusername/resume-enhancer.git`.
+2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/emmanuel1-byte/resume-enhancer-api.git`.
 3. **Install Dependencies**: Install the necessary dependencies by running `npm install` in the project directory.
 4. **Configure Gemini AI API**: Obtain your Gemini AI API key and configure it in the `config.js` file.
 5. **Run the Tool**: Start the resume-enhancer tool by running `npm start`.
