@@ -6,7 +6,7 @@ The Resume Enhancement API is a powerful tool designed to assist job seekers in 
 
 ## Features
 
-1. **Create Resume:** Users can upload their resume files to the API for analysis and enhancement.
+1. **Create Resume:** Users can upload their resume files to the API for enhancement.
 
 2. **Preview Resume:** After enhancement, users can preview their resumes to see the suggested improvements.
 
