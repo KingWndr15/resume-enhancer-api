@@ -1,22 +1,74 @@
-# Resume-Enhancer
+# Resume Enhancement API
 
 ## Introduction
-Welcome to Resume-Enhancer! This tool is designed to help you optimize your resume using the power of Gemini AI, enabling you to stand out in the competitive job market. Whether you're a seasoned professional or just starting your career, Resume-Enhancer provides the tools you need to create a compelling resume that gets noticed.
+
+The Resume Enhancement API is a powerful tool designed to assist job seekers in creating, previewing, managing, and downloading enhanced resumes. Integrated with Gemini AI, this API leverages advanced natural language processing (NLP) and content enhancement capabilities to provide users with valuable insights and suggestions for optimizing their resumes.
 
 ## Features
-- **Integration with Gemini AI**: Leverage the advanced capabilities of Gemini AI to analyze and improve your resume content.
-- **Keyword Optimization**: Identify and include industry-specific keywords to enhance your resume's visibility to recruiters and hiring managers.
-- **Resume Formatting**: Ensure your resume adheres to professional formatting standards, optimizing readability and aesthetics.
 
+1. **Create Resume:** Users can upload their resume files to the API for analysis and enhancement.
 
-## Getting Started
-1. **Sign Up for Gemini AI**: If you haven't already, sign up for an account on Gemini AI's platform at [gemini.ai/signup](https://gemini.ai/signup).
-2. **Clone the Repository**: Clone this repository to your local machine using `git clone https://github.com/emmanuel1-byte/resume-enhancer-api.git`.
-3. **Install Dependencies**: Install the necessary dependencies by running `npm install` in the project directory.
-4. **Configure Gemini AI API**: Obtain your Gemini AI API key and configure it in the `config.js` file.
-5. **Run the Tool**: Start the resume-enhancer tool by running `npm start`.
-6. **Upload Your Resume**: Follow the on-screen instructions to upload your resume and initiate the enhancement process.
-7. **Download**:  download your enhanced resume.
+2. **Preview Resume:** After enhancement, users can preview their resumes to see the suggested improvements.
+
+3. **Delete Resume:** Users can delete their uploaded resumes from the system if needed.
+
+4. **Download Resume:** Enhanced resumes can be downloaded in PDF format for easy sharing and printing.
+
+## Base URL
+
+The base URL for accessing the API is:
+
+```
+https://resume-enhancer-api.onrender.com
+```
+
+## Endpoints
+
+### 1. Upload Resume
+
+- **Endpoint:** `/api/v1/resumes/upload`
+- **Method:** POST
+- **Summary:** Upload a resume file for enhancement.
+- **Request Body:** Multipart form-data with the resume file.
+- **Responses:**
+  - **201 Created:** Successfully uploaded the resume.
+  - **400 Bad Request:** Invalid request or missing parameters.
+  - **415 Unsupported Media Type:** Unsupported file format.
+
+### 2. Preview Resume
+
+- **Endpoint:** `/api/v1/resumes/:resumeId`
+- **Method:** GET
+- **Summary:** Get the enhanced details of a specific resume by its ID.
+- **Path Parameter:** `resumeId` - ID of the resume to retrieve.
+- **Responses:**
+  - **200 OK:** Successfully retrieved the enhanced resume details.
+  - **404 Not Found:** Resume with the provided ID not found.
+
+### 3. Delete Resume
+
+- **Endpoint:** `/api/v1/resumes/:resumeId`
+- **Method:** DELETE
+- **Summary:** Delete a specific resume by its ID.
+- **Path Parameter:** `resumeId` - ID of the resume to delete.
+- **Responses:**
+  - **200 OK:** Successfully deleted the resume.
+  - **404 Not Found:** Resume with the provided ID not found.
+
+### 4. Download Resume
+
+- **Endpoint:** `/api/v1/resumes/download/:resumeId`
+- **Method:** GET
+- **Summary:** Download a specific resume by its ID in PDF format.
+- **Path Parameter:** `resumeId` - ID of the resume to download.
+- **Responses:**
+  - **200 OK:** Successfully downloaded the resume in PDF format.
+  - **400 Bad Request:** Invalid request or missing parameters.
+  - **404 Not Found:** Resume with the provided ID not found.
+
+## Tags
+
+- **Resume:** Endpoints related to resume management.
 
 
 

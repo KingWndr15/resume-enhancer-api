@@ -1,4 +1,5 @@
-const multer = require('multer')
+const multer = require('multer');
+const errorHander = require('./validation');
 const storage = multer.memoryStorage()
 
 
@@ -21,7 +22,7 @@ async function handlefileSizeLimitError(err, req, res, next) {
       });
     next();
   } catch (err) {
-    next(err);
+    errorHander(err, req, res, next)
   }
 }
 

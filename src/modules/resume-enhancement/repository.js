@@ -15,8 +15,42 @@ async function create(url) {
   }
 }
 
-const respository = {
-    create
+
+/**
+ * Finds a resume in the database by the given resume ID.
+ * @param {string} resumeId - The ID of the resume to find.
+ * @returns {Promise<Object>} - The found resume document.
+ */
+async function findResume(resumeId) {
+  try {
+    return await Resume.findById({ _id: resumeId });
+  } catch (err) {
+    throw err;
+  }
 }
+
+/**
+ * Deletes a resume from the database by the given resume ID.
+ * @param {string} resumeId - The ID of the resume to delete.
+ * @returns {Promise<Object>} - The result of the delete operation.
+ */
+async function deleteResume(resumeId) {
+  try {
+    return await Resume.deleteOne({ _id: resumeId });
+  } catch (err) {
+    throw err;
+  }
+}
+
+/**
+ * Provides an interface for managing resume-related data in the application.
+ * @module resume-enhancement/repository
+ */
+
+const respository = {
+  create,
+  findResume,
+  deleteResume,
+};
 
 module.exports = respository

@@ -12,6 +12,8 @@
 
     "@google/generative-ai": "^0.7.1",
 
+    "axios": "^1.6.8",
+
     "cloudinary": "^2.1.0",
 
     "cross-env": "^7.0.3",
@@ -20,7 +22,11 @@
 
     "express": "^4.19.2",
 
-    "marked": "^12.0.2",
+    "helmet": "^7.1.0",
+
+    "joi": "^17.13.0",
+
+    "markdown-to-text": "^0.1.1",
 
     "mongoose": "^8.3.2",
 
@@ -32,7 +38,9 @@
 
     "pdfkit": "^0.15.0",
 
-    "swagger-ui-express": "^5.0.0"
+    "swagger-ui-express": "^5.0.0",
+
+    "winston": "^3.13.0"
 
   }
 

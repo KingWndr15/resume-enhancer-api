@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const config = require('./config.js')
+const config = require('./config.js');
+const logger = require('./logger.js');
 
 /**
  * Establishes a connection to the database using the configured database URL.
@@ -11,9 +12,9 @@ const config = require('./config.js')
 async function establishDatabaseConnection() {
   try {
     await mongoose.connect(config.DATABASE_URL);
-    console.log("Database connection established successfully");
+    logger.info("Database connection established successfully");
   } catch (err) {
-    console.error("Error connecting to database", err);
+    logger.error("Error connecting to database", err);
   }
 }
 

@@ -2,7 +2,8 @@ const express = require('express');
 const enhancement = require('./modules/resume-enhancement/route');
 const establishDatabaseConnection = require('./utils/database');
 const sawggerUi = require('swagger-ui-express')
-const swaggerDocument = require('../doc/swagger.json')
+const swaggerDocument = require('../doc/swagger.json');
+const logger = require('./utils/logger');
 
 const app = express();
 
@@ -25,10 +26,10 @@ app.use("*", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  logger.error(err.stack)
   res.status(500).json({ success: false, message: "Internal Server Error" });
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  logger.info(`Server is running on port ${port}`);
 });
