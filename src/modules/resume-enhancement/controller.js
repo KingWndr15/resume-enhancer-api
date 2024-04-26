@@ -29,7 +29,7 @@ async function enhanceResume(req, res, next) {
 
   if (req.file.mimetype !== "application/pdf")
     return res.status(415).json({
-      suucess: false,
+      success: false,
       message: "Invalid file format pdf file expected!",
     });
 
@@ -37,8 +37,7 @@ async function enhanceResume(req, res, next) {
     const resumeBuffer = req.file.buffer;
     const parsedPdf = await PDFParser(resumeBuffer);
     const enhancedContent = await model.generateContent(
-      "Generate an enhanced version of the provided resume by improving its content, structure, and overall presentation. make it more compelling and impactful. " +
-        parsedPdf.text
+      config.GEMINI_PROMPT + parsedPdf.text
     );
 
     const resume = removeMarkdown(enhancedContent.response.text());
