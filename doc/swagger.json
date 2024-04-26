@@ -1,101 +1,220 @@
 {
-    "openapi": "3.0.0",
-    "x-stoplight": {
-      "id": "gxmy1errh0va8"
+  "openapi": "3.0.0",
+  "x-stoplight": {
+    "id": "gxmy1errh0va8"
+  },
+  "info": {
+    "title": "resume-enhancement-service",
+    "version": "1.0",
+    "contact": {
+      "name": "Emmanuel Hilary",
+      "url": "https://github.com/emmanuel1-byte",
+      "email": "emmanuelhilary9@gmail.com"
     },
-    "info": {
-      "title": "resume-enhancement-service",
-      "version": "1.0",
-      "contact": {
-        "name": "Emmanuel Hilary",
-        "url": "https://github.com/emmanuel1-byte",
-        "email": "emmanuelhilary9@gmail.com"
-      },
-      "description": "The Resume Enhancement API is a service designed to empower job seekers by improving the quality and effectiveness of their resumes through advanced AI-driven analysis and optimization. The API will integrate with Gemini AI's suite of natural language processing (NLP) and content enhancement capabilities to provide users with valuable insights and suggestions for enhancing their resumes."
-    },
-    "servers": [
-      {
-        "url": "http://localhost:3000"
+    "description": "The Resume Enhancement API is a service designed to empower job seekers by improving the quality and effectiveness of their resumes through advanced AI-driven analysis and optimization. The API will integrate with Gemini AI's suite of natural language processing (NLP) and content enhancement capabilities to provide users with valuable insights and suggestions for enhancing their resumes."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/v1/resumes/upload": {
+      "parameters": [],
+      "post": {
+        "summary": "Your POST endpoint",
+        "tags": [
+          "Resume"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": [
+              {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": "string",
+                      "data": {
+                        "resume": {}
+                      }
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": true
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "resume": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": true,
+                      "message": "string",
+                      "data": {
+                        "resume": {}
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-api-v1-resumes-upload",
+        "x-stoplight": {
+          "id": "n9e93oxvef6ay"
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "resume": {
+                    "type": "string"
+                  }
+                },
+                "x-examples": {
+                  "Example 1": {
+                    "resume": "file"
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "resume": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-    ],
-    "paths": {
-      "/api/v1/resumes/upload": {
-        "post": {
-          "summary": "Your POST endpoint",
-          "tags": [
-            "Resume"
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "content": {
-                "application/octet-stream": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {}
-                  }
-                }
-              }
-            },
-            "400": {
-              "description": "Bad Request",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "success": {
-                        "type": "boolean"
-                      },
-                      "message": {
-                        "type": "string"
-                      }
+    },
+    "/api/v1/resumes/:resumeId": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [
+          "Resume"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
                     },
-                    "x-examples": {
-                      "Example 1": {
-                        "success": false,
-                        "message": "Error Uploading file to cloudinary"
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "resume": {
+                          "type": "object",
+                          "properties": {}
+                        }
                       }
                     }
                   },
-                  "examples": {
+                  "x-examples": {
                     "Example 1": {
-                      "value": {
-                        "success": false,
-                        "message": "string"
+                      "success": true,
+                      "data": {
+                        "resume": {}
                       }
                     }
                   }
-                }
-              }
-            },
-            "415": {
-              "description": "Unsupported Media Type",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "x-examples": {
-                      "Example 1": {
-                        "suucess": false,
-                        "message": "Invalid file format pdf file expected!"
-                      }
-                    },
-                    "properties": {
-                      "suucess": {
-                        "type": "boolean",
-                        "default": false
-                      },
-                      "message": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "examples": {
-                    "Example 1": {
-                      "value": {
-                        "suucess": false,
-                        "message": "string"
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": true,
+                      "data": {
+                        "resume": {}
                       }
                     }
                   }
@@ -103,34 +222,133 @@
               }
             }
           },
-          "operationId": "post-api-resumes",
-          "x-stoplight": {
-            "id": "3fxi08eco2ytf"
-          },
-          "requestBody": {
+          "404": {
+            "description": "Not Found",
             "content": {
-              "multipart/form-data": {
+              "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "resume": {
-                      "type": "string"
-                    }
-                  },
                   "x-examples": {
                     "Example 1": {
-                      "resume": "string"
+                      "success": true,
+                      "message": "string"
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "message": {
+                      "type": "string"
                     }
                   }
                 },
                 "examples": {
                   "Example 1": {
                     "value": {
-                      "resume": "string"
+                      "success": false,
+                      "message": "string"
                     }
                   }
                 }
-              },
+              }
+            }
+          }
+        },
+        "operationId": "get-api-v1-resumes-:resumeId",
+        "x-stoplight": {
+          "id": "m9avdu7yiox4y"
+        }
+      },
+      "delete": {
+        "summary": "Your DELETE endpoint",
+        "tags": [
+          "Resume"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": true,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": true,
+                      "message": "string"
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "delete-api-v1-resumes-:resumeId",
+        "x-stoplight": {
+          "id": "ityeel73uigyp"
+        }
+      }
+    },
+    "/api/v1/resumes/download/:resumeId": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [
+          "Resume"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
               "application/pdf": {
                 "schema": {
                   "type": "object",
@@ -138,17 +356,87 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "x-examples": {
+                    "Example 1": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  },
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "default": false
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": {
+                      "success": false,
+                      "message": "string"
+                    }
+                  }
+                }
+              }
+            }
           }
         },
-        "parameters": []
+        "operationId": "get-api-v1-resumes-download-:resumeId",
+        "x-stoplight": {
+          "id": "vrkvhnl9m2b52"
+        }
       }
-    },
-    "components": {
-      "schemas": {}
-    },
-    "tags": [
-      {
-        "name": "Resume"
-      }
-    ]
-  }
+    }
+  },
+  "components": {
+    "schemas": {}
+  },
+  "tags": [
+    {
+      "name": "Resume"
+    }
+  ]
+}
