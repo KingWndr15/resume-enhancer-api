@@ -11,7 +11,7 @@ const { Schema } = mongoose;
  */
 const enhancedResumeSchema = new Schema(
   {
-    resume_url: { type: String, required: true },
+    resume_url: { type: String, required: true }
   },
   { timestamps: true, autoIndex: false }
 );

@@ -1,4 +1,5 @@
-const Resume = require('./model')
+const logger = require("../../utils/logger");
+const Resume = require("./model");
 
 /**
  * Creates a new resume in the database.
@@ -11,10 +12,9 @@ async function create(url) {
   try {
     return await Resume.create({ resume_url: url });
   } catch (err) {
-    throw err;
+    logger.error(err.message)
   }
 }
-
 
 /**
  * Finds a resume in the database by the given resume ID.
@@ -25,7 +25,15 @@ async function findResume(resumeId) {
   try {
     return await Resume.findById({ _id: resumeId });
   } catch (err) {
-    throw err;
+    logger.error(err.message);
+  }
+}
+
+async function listResume() {
+  try {
+    return Resume.find({});
+  } catch (err) {
+    logger.error(err.message)
   }
 }
 
@@ -38,7 +46,7 @@ async function deleteResume(resumeId) {
   try {
     return await Resume.deleteOne({ _id: resumeId });
   } catch (err) {
-    throw err;
+    logger.error(err.message)
   }
 }
 
@@ -53,4 +61,4 @@ const respository = {
   deleteResume,
 };
 
-module.exports = respository
+module.exports = respository;
