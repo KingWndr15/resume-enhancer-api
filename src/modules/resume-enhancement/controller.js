@@ -161,11 +161,19 @@ async function downloadResume(req, res, next) {
     if (!response)
       return res
         .status(400)
-        .json({ success: false, message: "Download was'nt unsuccesfull" });
+        .json({ success: false, message: "Download was'nt succesfull" });
     res.setHeader("Content-Disposition", "attachment; filename=resume.pdf");
     res.setHeader("Content-Type", "application/pdf");
     response.data.pipe(res);
   } catch (err) {
+    errorHander(err, req, res, next);
+  }
+}
+
+async function listResume(req, res, next){
+  try{
+
+  }catch(err){
     errorHander(err, req, res, next);
   }
 }
