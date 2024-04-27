@@ -29,13 +29,6 @@ async function findResume(resumeId) {
   }
 }
 
-async function listResume() {
-  try {
-    return Resume.find({});
-  } catch (err) {
-    logger.error(err.message)
-  }
-}
 
 /**
  * Deletes a resume from the database by the given resume ID.

@@ -170,12 +170,4 @@ async function downloadResume(req, res, next) {
   }
 }
 
-async function listResume(req, res, next){
-  try{
-
-  }catch(err){
-    errorHander(err, req, res, next);
-  }
-}
-
 module.exports = { enhanceResume, previewResume, deleteResume, downloadResume };
