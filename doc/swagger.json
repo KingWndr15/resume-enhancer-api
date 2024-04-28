@@ -73,7 +73,6 @@
                 }
               }
             }
-          }
           },
           "400": {
             "description": "Bad Request",
@@ -153,7 +152,8 @@
                 "type": "object",
                 "properties": {
                   "resume": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "binary"
                   }
                 },
                 "x-examples": {
@@ -172,8 +172,9 @@
             }
           }
         }
-      },
-    "/api/v1/resumes/:resumeId": {
+      }
+    },
+    "/api/v1/resumes/{resumeId}": {
       "get": {
         "summary": "Your GET endpoint",
         "tags": [
@@ -256,10 +257,22 @@
             }
           }
         },
-        "operationId": "get-api-v1-resumes-:resumeId",
+        "operationId": "get-api-v1-resumes-{resumeId}",
         "x-stoplight": {
           "id": "m9avdu7yiox4y"
-        }
+        },
+        "parameters": [
+          {
+            "name": "resumeId",
+            "in": "path",
+            "required": true,
+            "description": "ID of the resume to retrieve",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
       },
       "delete": {
         "summary": "Your DELETE endpoint",
@@ -333,13 +346,25 @@
             }
           }
         },
-        "operationId": "delete-api-v1-resumes-:resumeId",
+        "operationId": "delete-api-v1-resumes-{resumeId}",
         "x-stoplight": {
           "id": "ityeel73uigyp"
-        }
+        },
+        "parameters": [
+          {
+            "name": "resumeId",
+            "in": "path",
+            "required": true,
+            "description": "ID of the resume to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
       }
     },
-    "/api/v1/resumes/download/:resumeId": {
+    "/api/v1/resumes/download/{resumeId}": {
       "get": {
         "summary": "Your GET endpoint",
         "tags": [
@@ -424,10 +449,22 @@
             }
           }
         },
-        "operationId": "get-api-v1-resumes-download-:resumeId",
+        "operationId": "get-api-v1-resumes-download-{resumeId}",
         "x-stoplight": {
           "id": "vrkvhnl9m2b52"
-        }
+        },
+        "parameters": [
+          {
+            "name": "resumeId",
+            "in": "path",
+            "required": true,
+            "description": "ID of the resume to download",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ]
       }
     }
   },
