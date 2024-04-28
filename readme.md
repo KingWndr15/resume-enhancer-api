@@ -70,10 +70,11 @@ https://resume-enhancer-api.onrender.com
 
 - **Resume:** Endpoints related to resume management.
 
-## Postman doc
+## Postman documentation
 https://documenter.getpostman.com/view/32396066/2sA3Bt3AAh
 
-## Swagger doc
+## Swagger documentation
+https://resume-enhancer-api.onrender.com/api/docs/
 
 
 
