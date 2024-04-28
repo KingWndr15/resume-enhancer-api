@@ -268,8 +268,7 @@
             "required": true,
             "description": "ID of the resume to retrieve",
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ]
@@ -357,8 +356,7 @@
             "required": true,
             "description": "ID of the resume to delete",
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ]
@@ -460,8 +458,7 @@
             "required": true,
             "description": "ID of the resume to download",
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "type": "string"
             }
           }
         ]
