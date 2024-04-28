@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://resume-enhancer-api.onrender.com/"
+      "url": "https://resume-enhancer-api.onrender.com"
     }
   ],
   "paths": {
