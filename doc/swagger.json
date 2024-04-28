@@ -29,8 +29,8 @@
         "responses": {
           "201": {
             "description": "Created",
-            "content": [
-              {
+            "content": {
+              "application/json": {
                 "schema": {
                   "type": "object",
                   "x-examples": {
@@ -72,7 +72,8 @@
                   }
                 }
               }
-            ]
+            }
+          }
           },
           "400": {
             "description": "Bad Request",
@@ -171,8 +172,7 @@
             }
           }
         }
-      }
-    },
+      },
     "/api/v1/resumes/:resumeId": {
       "get": {
         "summary": "Your GET endpoint",
