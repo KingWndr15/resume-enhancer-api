@@ -2,6 +2,7 @@
     <div class="home">
         <Hero />
         <Operator />
+        <p class="mt-1">Powered by <b>gemini</b></p>
     </div>
 </template>
 
