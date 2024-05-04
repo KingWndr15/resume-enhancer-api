@@ -1,0 +1,33 @@
+@import 'Font.css';
+@import 'Variables.css';
+@import 'utility.css';
+
+* {
+    padding: 0px;
+    margin: 0;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+}
+
+p, li, ul, button {
+    color: var(--primary-color);
+}
+
+/* Track */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+a button {
+  font-family: var(--primary-font);
+}
+
+ul li {
+    list-style: none;
+}

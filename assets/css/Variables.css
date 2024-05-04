@@ -1,0 +1,10 @@
+/* button {
+    background: #000000;
+    border: 1px solid #FFFFFF;
+    border-radius: 16px;
+    font-weight: 600;
+} */
+
+li, ul {
+    list-style: none;
+}
