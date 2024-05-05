@@ -57,8 +57,13 @@
       },
       handleFileInput(event) {
         const files = event.target.files;
-        this.uploadFiles(files);
+        if (files.length > 0 && files[0].size <= 5 * 1024 * 1024) { // Check if file size is less than or equal to 5MB
+          this.uploadFiles(files);
+        } else {
+          alert("File size exceeds the limit of 5MB. Please choose a smaller file.");
+        }
       },
+      
       uploadFiles(files) {
         // Set uploading to true to show the uploading message
         this.uploading = true;
